@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="../static/images/bc_ribbon.png"/>
+  <title>Breast Cancer Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- Nav Bar Setting -->
+    <nav class="h5 navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <a class="navbar-brand" href="../index.html">Overview</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand" href="visualization.html">Visualization</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+              aria-expanded="false">Models</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="features.html">Features Analysis</a>
+              <a class="dropdown-item" href="svm.html">Supported Vector Machine</a>
+              <a class="dropdown-item" href="rm.html">Random Forest</a>
+              <a class="dropdown-item" href="nn.html">Neural Network</a>
+              <a class="dropdown-item" href="lr.html">Logistic Regression</a>
+              <a class="dropdown-item" href="knn.html">Knearest Neighbors</a>
+            </div>
+          </li>
+        </ul>
+
+        <a class="navbar-brand" href="comparison.html">Comparison</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="diagram.html">Diagram</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="reference.html">Reference</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      </div>
+
+    </nav>
+
+    <div class="project-sub text-center">
+      <h1>Breast Cancer Prediction</h1>
+      <p>Machine Learning Project</p>
+    </div>
+
+    <div class="container margin-top-100">
+      <div class="row">
+        <h1 class="title text-center text-light bg-secondary">Model Comparison</h1>
+        <div class="text-left h4 pt-4">
+          <p> Analysis and Comparison:</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <p class="h5 pb-4">There are various ways to compare Machine Learning Models. The metric we chose to focus on for this comparison is accuracy. The chart above highlights the 5 models we selected: K Nearest Neighbors (KNN), Logistic Regression (LGR), a Deep Neural Network with 2 hidden layers and Adam Optimizer (NN), Random Forest (RF) and Supported Vector Mchine (SVM). The first aspect to note is that changing the set of features to make a prediction on, does not affect RF or SVM as they both show an unchanged level of accuracy regardless of feature selection, repectively 96% and 97%. The model most affected by the feature slelection is the NN, where out of 30, 7 of the lowest correlated features  selected yielded the best performance at 97%. That same correlation-based selection affected the performance of KNN from 97% with all Features down to 94%. Finally, we like the performance of the Logistic Regression the best, as it maintains a good performance with either feature selections.</p>
+        <a target="_blank" href="../static/images/model_compare.png">
+          <img src="../static/images/model_compare.png" alt="model compare diagrame" class="img-fluid" style = "height: 100%x;
+          width: 100%;">
+        </a>
+
+        <p class="h5 margin-top-100 pb-4">Another strategy we have implemented is the KFold Cross Validation with a 10-fold group. The strategy uses an algorithm that, simplified, results in shuffling the dataset in a random manner, then for each group perform a split, fit a model on the training set then evaluate it on the testing set, discard the model and retain the evaluation scores.
+          We applied this methos on three sets of data: dataset with all 30 features, dataset with only SelectKBest selected 7 features and a dataset with only 7 features selected through correlation analysis. The boxplot above is the comparative result of the Correlation-based selection. It shows Logistic Regression and SVM demonstrating the best performance as well as the safest behavior compared to the high variability of the random forest model and KNN.</p>
+        <a target="_blank" href="../static/images/Kfold_cross_cs.png">
+          <img src="../static/images/Kfold_cross_cs.png" alt="Kfold cross diagrame" class="img-fluid">
+        </a>
+        
+      </div>
+
+      <footer class="footer">
+        <span class="bottom">Northwestern Data Visualization Final Project</span>
+      </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+
+  </div>
+</body>
+
+</html>

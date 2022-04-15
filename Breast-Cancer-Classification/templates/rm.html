@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="../static/images/bc_ribbon.png"/>
+  <title>Breast Cancer Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- Nav Bar Setting -->
+    <nav class="h5 navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <a class="navbar-brand" href="../index.html">Overview</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand" href="visualization.html">Visualization</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+              aria-expanded="false">Models</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="features.html">Features Analysis</a>
+              <a class="dropdown-item" href="svm.html">Supported Vector Machine</a>
+              <a class="dropdown-item" href="rm.html">Random Forest</a>
+              <a class="dropdown-item" href="nn.html">Neural Network</a>
+              <a class="dropdown-item" href="lr.html">Logistic Regression</a>
+              <a class="dropdown-item" href="knn.html">Knearest Neighbors</a>
+            </div>
+          </li>
+        </ul>
+
+        <a class="navbar-brand" href="comparison.html">Comparison</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="diagram.html">Diagram</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="reference.html">Reference</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      </div>
+
+    </nav>
+
+    <div class="project-sub text-center">
+      <h1>Breast Cancer Prediction</h1>
+      <p>Machine Learning Project</p>
+    </div>
+
+    <div class="container margin-top-100">
+
+      <div class="row margin-top-100">
+        <h1 class="title text-center text-light bg-secondary">Random Forest Model</h1>
+        <p class="text-left h4 margin-top-50">Random Forest is a highly configurable model. We started our tuning exercise with 200 trees, which we were able to reduce to 10 while still maintaining a good accuracy. Next we tried setting the max_features to ‘sqrt’ to limit the number of features being considered for each split. Given the wide variety of parameters, we went with a Grid Search. It is very resource consuming and takes about 1min runtime with an M1 chip, however does not improve the accuracy drastically and so was not considered as a candidate for our predictor app.</p>
+        <p class="text-left h4 pt-4"> Random Forest Model with Full 30 Features</p>
+        <div class="row pt-4">
+          <div class="col-md-6">
+            <a target="_blank" href="../static/images/rf_report_all.png">
+              <img src="../static/images/rf_report_all.png" alt="rf report all" class="model-report img-fluid">
+            </a>
+          </div>
+          <div class="col-md-6 gx-5">
+            <a target="_blank" href="../static/images/rf_cm_all.png">
+              <img src="../static/images/rf_cm_all.png" alt="rf cm all" class="model-img img-fluid">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-left h4 margin-top-50"> Random Forest Model with 7 BestFeature Selected Features</p>
+      <div class="row pt-4">
+        <div class="col-md-6">
+          <a target="_blank" href="../static/images/rf_report_all.png">
+            <img src="../static/images/rf_report_sk.png" alt="rf report sk" class="model-report img-fluid">
+          </a>
+        </div>
+        <div class="col-md-6 gx-5">
+          <a target="_blank" href="../static/images/rf_cm_sk.png">
+            <img src="../static/images/rf_cm_sk.png" alt="rf cm sk" class="model-img img-fluid">
+          </a>
+        </div>
+      </div>
+
+      <p class="text-left h4 margin-top-50"> Random Forest Model with 7 Correlation Selected Features</p>
+      <div class="row pt-4">
+        <div class="col-md-6">
+          <a target="_blank" href="../static/images/rf_report_all.png">
+            <img src="../static/images/rf_report_cs.png" alt="rf report cs" class="model-report img-fluid">
+          </a>
+        </div>
+        <div class="col-md-6 gx-5">
+          <a target="_blank" href="../static/images/rf_cm_cs.png">
+            <img src="../static/images/rf_cm_cs.png" alt="rf cm cs" class="model-img img-fluid">
+          </a>
+        </div>
+        
+        <p class="text-left h4 pt-4"> Observations:</p>
+        <p class="text-left h4 pt-2"> 1. Model accuracy did not change after reducing feature number from 30 to 7. </p>
+        <p class="text-left h4 pt-2"> 2. Both 7 feature models had the same performance. </p>
+  
+      </div>
+
+
+      <footer class="footer">
+        <span class="bottom">Northwestern Data Visualization Final Project</span>
+      </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+
+</body>
+
+</html>
