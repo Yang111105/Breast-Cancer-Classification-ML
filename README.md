@@ -1,7 +1,7 @@
 # Breast-Cancer-Classification
 This project uses machine learning algorithms to predict the class of a breast tumor based on specific features of a group of breast cells.
 
-Click **[here](https://mpk9909g.github.io/Breast-Cancer-Classification/)** to go to the github page that hosts this repo and explore the website. That page has a link to our  Prediction site **http://bc-predict.herokuapp.com/** where you can predict the tumor type of a group of cells based on their features.
+Click **[here](https://yang111105.github.io/Breast-Cancer-Classification-ML/)** to go to the github page that hosts this repo and explore the website. That page has a link to our  Prediction site **http://bc-predict.herokuapp.com/** where you can predict the tumor type of a group of cells based on their features.
 Click **[here](https://github.com/mpk9909g/BC_classification_Heroku.git)** to go to our second **GitHub-Repo** where you can find all necessary files and codes for our **Prediction Site**. 
 
 ## Notebooks in this Repo
